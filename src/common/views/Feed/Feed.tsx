@@ -41,7 +41,7 @@ export default function Feed({
     const actionLog = useActionLogService();
     const contentReady = useAtomValue(contentLoaded);
     const injections = useAtomValue(injectedContent);
-    const injectTime = useRef(Date.now());
+    const injectTime = useRef(0);
 
     useEffect(() => {
         if (moreState.current && recommendations.length > 0) {

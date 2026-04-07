@@ -31,10 +31,12 @@ vi.mock('@genai-fi/recom', async () => {
     const mod = await vi.importActual<typeof import('@genai-fi/recom')>('@genai-fi/recom');
     return {
         ...mod,
-        RecommenderService: vi.fn(() => ({
-            getCandidateProbability: mockCandidates,
-            getScoringProbabilities: mockScoring,
-        })),
+        RecommenderService: vi.fn(function () {
+            return {
+                getCandidateProbability: mockCandidates,
+                getScoringProbabilities: mockScoring,
+            };
+        }),
     };
 });
 

@@ -12,6 +12,7 @@ import { useServices } from '@genaism/hooks/services';
 import { bytesToBase64DataUrl, dataUrlToBytes } from '@genaism/util/base64';
 import ConnectionStatus from '@genaism/common/components/ConnectionStatus/ConnectionStatus';
 import { usePeerData, usePeerSender, usePeerStatus } from '@genai-fi/base/hooks/peer';
+import { uint8ArrayToArrayBuffer } from './utils';
 
 const DATA_LOG_TIME = 15 * 60 * 1000;
 const USERNAME_KEY = 'genai_somekone_username';
@@ -35,7 +36,7 @@ export function useFeedProtocol() {
 }
 
 export default function FeedProtocol({ content, server, setContent, children }: Props) {
-    const logRef = useRef(Date.now());
+    const logRef = useRef(0);
     const logTimer = useRef(-1);
     const setAvailableUsers = useSetAtom(availableUsers);
     const [config, setConfig] = useAtom<SMConfig>(appConfiguration);
@@ -48,7 +49,7 @@ export default function FeedProtocol({ content, server, setContent, children }: 
     usePeerData((data: EventProtocol, conn: Connection<EventProtocol>) => {
         if (data.event === 'eter:config' && data.configuration) {
             setConfig((old) => ({ ...old, ...data.configuration }));
-            if (data.content) setContent && setContent(data.content);
+            if (data.content && setContent) setContent(data.content);
         } else if (data.event === 'eter:users') {
             setAvailableUsers(data.users);
         } else if (data.event === 'eter:profile_data') {
@@ -85,7 +86,7 @@ export default function FeedProtocol({ content, server, setContent, children }: 
             }
         } else if (data.event === 'eter:newpost') {
             if (data.data) {
-                bytesToBase64DataUrl(data.data).then((base64) => {
+                bytesToBase64DataUrl(uint8ArrayToArrayBuffer(data.data)).then((base64) => {
                     if (!contentSvc.hasContent(`content:${data.meta.id}`)) {
                         contentSvc.addContent(base64, data.meta);
                     } else {

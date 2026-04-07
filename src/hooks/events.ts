@@ -1,11 +1,12 @@
 import EE from 'eventemitter3';
 import { createContext, useContext, useEffect, useMemo } from 'react';
 
-type RefreshEvents = {
+interface RefreshEvents {
     refresh_graph: [];
     refresh_embeddings: [];
-};
+}
 
+// eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
 type SaveEvents = {
     [key in `save_${string}`]: [];
 };

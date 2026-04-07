@@ -22,8 +22,8 @@ export default function ContentBrowser() {
             const filtered = allContent.filter((c) => {
                 const meta = contentSvc.getContentMetadata(c);
                 if (meta) {
-                    for (let i = 0; i < meta.labels.length; ++i) {
-                        if (tagSet.has(meta.labels[i].label)) {
+                    for (const label of meta.labels) {
+                        if (tagSet.has(label.label)) {
                             return true;
                         }
                     }

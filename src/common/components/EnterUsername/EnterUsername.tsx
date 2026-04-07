@@ -39,6 +39,7 @@ export default function EnterUsername({ onUsername, autoUsername }: Props) {
     const profiler = useProfilerService();
 
     const anonName = useMemo(
+        // eslint-disable-next-line react-hooks/purity
         () => (autoUsername ? `${generateUsername()}${Math.floor(Math.random() * 100)}` : ''),
         [autoUsername]
     );

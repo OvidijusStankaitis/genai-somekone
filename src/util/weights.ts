@@ -3,9 +3,9 @@ import { NodeID, WeightedNode } from '@genai-fi/recom';
 export function normWeights<T extends NodeID>(nodes: WeightedNode<T>[]) {
     let min = Number.MAX_SAFE_INTEGER;
     let max = Number.MIN_SAFE_INTEGER;
-    for (let i = 0; i < nodes.length; ++i) {
-        min = Math.min(min, nodes[i].weight);
-        max = Math.max(max, nodes[i].weight);
+    for (const node of nodes) {
+        min = Math.min(min, node.weight);
+        max = Math.max(max, node.weight);
     }
 
     const diff = max - min;

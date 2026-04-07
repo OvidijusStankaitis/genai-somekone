@@ -49,8 +49,8 @@ export async function svgToPNG(svg: SVGSVGElement, scale = 1, margin = 0.01): Pr
         `${bbox.x - marginX} ${bbox.y - marginY} ${bbox.width + 2 * marginX} ${bbox.height + 2 * marginY}`
     );
     const images = clone.getElementsByTagName('image');
-    for (let i = 0; i < images.length; ++i) {
-        images[i].setAttribute('href', await getImageDataURL(images[i].href.baseVal));
+    for (const image of images) {
+        image.setAttribute('href', await getImageDataURL(image.href.baseVal));
     }
 
     //Get the font

@@ -23,17 +23,23 @@ vi.mock('@genai-fi/recom', async () => {
     const mod = await vi.importActual<typeof import('@genai-fi/recom')>('@genai-fi/recom');
     return {
         ...mod,
-        GraphService: vi.fn(() => ({
-            getNodesByType: mockUsers,
-        })),
-        ProfilerService: vi.fn((broker, graph) => ({
-            broker,
-            graph,
-            getUserProfile: mockProfiles,
-        })),
-        ActionLogService: vi.fn(() => ({
-            getActionLog: mockLog,
-        })),
+        GraphService: vi.fn(function () {
+            return {
+                getNodesByType: mockUsers,
+            };
+        }),
+        ProfilerService: vi.fn(function (broker, graph) {
+            return {
+                broker,
+                graph,
+                getUserProfile: mockProfiles,
+            };
+        }),
+        ActionLogService: vi.fn(function () {
+            return {
+                getActionLog: mockLog,
+            };
+        }),
     };
 });
 

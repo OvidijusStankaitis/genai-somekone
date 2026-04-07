@@ -102,9 +102,9 @@ export default class SimilarityService extends EE {
 
         tallyMap.forEach((cluster, ix) => {
             let label: string | null = null;
-            for (let i = 0; i < cluster.labels.length; ++i) {
-                if (!usedLabels.has(cluster.labels[i][0])) {
-                    label = cluster.labels[i][0];
+            for (const clusterLabel of cluster.labels) {
+                if (!usedLabels.has(clusterLabel[0])) {
+                    label = clusterLabel[0];
                     break;
                 }
             }

@@ -7,8 +7,7 @@ export function deleteWithTags(contentSvc: ContentService, tags: string[]) {
     allContent.forEach((c) => {
         const meta = contentSvc.getContentMetadata(c);
         if (meta) {
-            for (let i = 0; i < meta.labels.length; ++i) {
-                const label = meta.labels[i];
+            for (const label of meta.labels) {
                 if (tagSet.has(label.label)) {
                     contentSvc.removeContent(c);
                     break;
@@ -25,8 +24,7 @@ export function mergeTags(contentSvc: ContentService, tags: string[]) {
     allContent.forEach((c) => {
         const meta = contentSvc.getContentMetadata(c);
         if (meta) {
-            for (let i = 0; i < meta.labels.length; ++i) {
-                const label = meta.labels[i];
+            for (const label of meta.labels) {
                 if (tagSet.has(label.label)) {
                     label.label = tags[0];
                 }
@@ -44,8 +42,7 @@ export function renameTag(contentSvc: ContentService, oldName: string, newName: 
     allContent.forEach((c) => {
         const meta = contentSvc.getContentMetadata(c);
         if (meta) {
-            for (let i = 0; i < meta.labels.length; ++i) {
-                const label = meta.labels[i];
+            for (const label of meta.labels) {
                 if (label.label === oldName) {
                     label.label = newName;
                 }

@@ -56,8 +56,7 @@ export default function ContentWizard() {
             observer.current.observe(wkspaceRef.current);
             const children = wkspaceRef.current.children;
             if (children) {
-                for (let i = 0; i < children.length; ++i) {
-                    const child = children[i];
+                for (const child of children) {
                     observer.current.observe(child);
                 }
             }

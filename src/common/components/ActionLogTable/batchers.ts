@@ -6,9 +6,7 @@ export function batchLogs(log: ContentLogEntry[], oldBatch: ContentLogEntry[][])
     if (log.length === 0) return results;
 
     let doEnd = false;
-    for (let i = 0; i < log.length; ++i) {
-        const l = log[i];
-
+    for (const l of log) {
         const current = results[results.length - 1];
 
         if (current.length > 0 && current[0].entry.id !== l.entry.id) {

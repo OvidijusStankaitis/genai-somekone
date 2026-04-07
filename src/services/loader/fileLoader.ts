@@ -231,31 +231,15 @@ export async function loadFile(
                 (node.data as UserNodeData).featureWeights = {};
             }
         });
-        /*store.graph.edges.forEach((edge) => {
-            if (isTopicID(edge.source)) {
-                const label = topicSet.get(edge.source) || '';
-                edge.source = getTopicId(label);
-            }
-            if (isTopicID(edge.destination)) {
-                const label = topicSet.get(edge.destination) || '';
-                edge.destination = getTopicId(label);
-            }
-        });*/
-
-        //rebaseEdges(store.graph.edges, timeOffset);
-
-        // Remove users who do not have valid names
-        // const badUsers = new Set<NodeID>(store.graph.nodes.filter((n) => !n.data).map((n) => n.id));
 
         contentSvc.graph.addNodes(store.graph.nodes.filter((n) => !!n.data));
-        // addEdges(store.graph.edges.filter((e) => !badUsers.has(e.destination) && !badUsers.has(e.source)));
     }
 
     store.meta.forEach((v) => {
         // Patch hack to reduce label strength
-        for (let i = 0; i < v.labels.length; ++i) {
-            if (isDisallowedTopic(v.labels[i].label)) {
-                v.labels[i].weight *= 0.1;
+        for (const label of v.labels) {
+            if (isDisallowedTopic(label.label)) {
+                label.weight *= 0.1;
             }
         }
         contentSvc.addContent(
@@ -273,7 +257,7 @@ export async function loadFile(
         store.users.forEach((u) => {
             try {
                 if (u.name !== 'NoName') contentSvc.graph.addNode('user', u.id, u);
-            } catch (e) {
+            } catch {
                 console.warn('User already exists');
             }
         });

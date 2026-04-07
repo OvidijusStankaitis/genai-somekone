@@ -35,8 +35,8 @@ export default function EmbeddingTool() {
 
     const valid = useMemo(() => {
         if (!startGenerate) {
-            for (let i = 0; i < content.length; ++i) {
-                const meta = contentSvc.getContentMetadata(content[i]);
+            for (const c of content) {
+                const meta = contentSvc.getContentMetadata(c);
                 if (!meta || !meta.embedding) return false;
             }
         }

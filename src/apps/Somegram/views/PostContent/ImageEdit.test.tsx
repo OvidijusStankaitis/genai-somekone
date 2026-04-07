@@ -24,17 +24,19 @@ const { mockEncode, mockSimilar } = vi.hoisted(() => ({
 
 vi.mock('@genai-fi/recom', async (importOriginal) => ({
     ...(await importOriginal<typeof import('@genai-fi/recom')>()),
-    ContentService: vi.fn(() => ({
-        hasEncoder: () => true,
-        createIsolatedEmbedding: mockEncode,
-        getSimilarContent: mockSimilar,
-        getContentMetadata: () => ({
-            labels: [
-                { label: 'label1', weight: 1 },
-                { label: 'label2', weight: 0.5 },
-            ],
-        }),
-    })),
+    ContentService: vi.fn(function () {
+        return {
+            hasEncoder: () => true,
+            createIsolatedEmbedding: mockEncode,
+            getSimilarContent: mockSimilar,
+            getContentMetadata: () => ({
+                labels: [
+                    { label: 'label1', weight: 1 },
+                    { label: 'label2', weight: 0.5 },
+                ],
+            }),
+        };
+    }),
 }));
 
 describe('ImageEdit component', () => {

@@ -55,8 +55,6 @@ export interface SomekoneSocialSettings {
     showNodeMenu?: boolean;
 }
 
-export interface SomekoneGeneralSettings {}
-
 export interface SomekoneUISettings {
     showUserPanel?: UserPanel;
     showShareCode?: boolean;

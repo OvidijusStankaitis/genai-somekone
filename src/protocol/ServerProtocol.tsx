@@ -13,6 +13,7 @@ import { bytesToBase64DataUrl, dataUrlToBytes } from '@genaism/util/base64';
 import { Connection } from '@genai-fi/base/main/services/peer2peer/types';
 import ConnectionStatus from '@genaism/common/components/ConnectionStatus/ConnectionStatus';
 import { usePeerClose, usePeerData, usePeerSender, usePeerStatus } from '@genai-fi/base/hooks/peer';
+import { uint8ArrayToArrayBuffer } from './utils';
 
 const MAX_AGE = 30 * 60 * 1000; // 30 mins
 
@@ -74,7 +75,7 @@ export default function ServerProtocol({ onReady, content }: Props) {
         } else if (data.event === 'eter:newpost') {
             const cid: ContentNodeId = `content:${data.meta.id}`;
             if (data.data) {
-                bytesToBase64DataUrl(data.data).then((base64) => {
+                bytesToBase64DataUrl(uint8ArrayToArrayBuffer(data.data)).then((base64) => {
                     if (!contentSvc.hasContent(cid)) {
                         contentSvc.addContent(base64, data.meta);
                     } else {

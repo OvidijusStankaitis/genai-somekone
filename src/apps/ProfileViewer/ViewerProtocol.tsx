@@ -35,7 +35,7 @@ export default function ViewerProtocol({ children, onID }: Props) {
         } else if (data.event === 'eter:profile_data') {
             try {
                 profiler.replaceProfile(data.id, data.profile);
-            } catch (e) {
+            } catch {
                 // Ignore
             }
         } else if (data.event === 'eter:action_log') {
@@ -57,7 +57,7 @@ export default function ViewerProtocol({ children, onID }: Props) {
         if (username && send && ready) {
             try {
                 window.sessionStorage.setItem(USERNAME_KEY, username);
-            } catch (e) {
+            } catch {
                 // Ignore this
             }
             profiler.setUserName(profiler.getCurrentUser(), username);
