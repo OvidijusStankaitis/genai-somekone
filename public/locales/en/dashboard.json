@@ -28,9 +28,12 @@
         "reetta": {
             "title": "Generic Content",
             "description": "Over 700 carefully selected free images in 7 main categories, food, hobbies, animals, lifestyle, fashion, sports and landscapes."
+        },
+        "jussi": {
+            "title": "Safe Content",
+            "description": "Generic content with additional filtering of sensitive content."
         }
     },
-
     "menu": {
         "vis": {
             "title": "Visualizations",

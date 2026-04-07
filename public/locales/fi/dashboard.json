@@ -28,9 +28,12 @@
         "reetta": {
             "title": "Geneerinen sisältö",
             "description": "Yli 700 huolellisesti valittua ilmaista kuvaa 7 pääkategoriassa: ruoka, harrastukset, eläimet, elämäntapa, muoti, urheilu ja maisemat."
+        },
+        "jussi": {
+            "title": "Turvallinen sisältö",
+            "description": "Geneerinen sisältö, jossa on lisäsuodatus arkaluontoiselle sisällölle."
         }
     },
-
     "menu": {
         "vis": {
             "title": "Näkymä",

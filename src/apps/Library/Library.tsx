@@ -38,6 +38,16 @@ export function Component() {
                         description={t('library.reetta.description')}
                     />
                     <ContentItem
+                        title={t('library.jussi.title')}
+                        image="/images/reetta1.jpg"
+                        url={`/dashboard/socialgraph?${createSearchParams({
+                            content: compressToEncodedURIComponent(
+                                JSON.stringify(['https://store.gen-ai.fi/somekone/jussi_safe1.zip'])
+                            ),
+                        })}`}
+                        description={t('library.jussi.description')}
+                    />
+                    <ContentItem
                         title={t('library.public.title')}
                         image="/images/publicDemo.jpg"
                         url={`/dashboard/usergrid?${createSearchParams({

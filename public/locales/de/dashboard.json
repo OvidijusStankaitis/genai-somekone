@@ -28,6 +28,10 @@
         "reetta": {
             "title": "Allgemeiner Inhalt",
             "description": "Über 700 sorgfältig ausgewählte kostenlose Bilder in 7 Hauptkategorien: Essen, Hobbys, Tiere, Lebensstil, Mode, Sport und Landschaften."
+        },
+        "jussi": {
+            "title": "Sichere Inhalte",
+            "description": "Allgemeine Inhalte mit zusätzlicher Filterung sensibler Inhalte."
         }
     },
     "menu": {
@@ -208,7 +212,6 @@
             "loading": "Erstelle dein soziales Netzwerk...",
             "confirmDeleteUser": "Möchtest du den Benutzer \"{{name}}\" wirklich löschen?"
         },
-
         "actions": {
             "start": "Starten",
             "cancel": "Abbrechen",
@@ -226,7 +229,6 @@
             "socialUserMenu": "Menü für einen Benutzer",
             "mainMenu": "Hauptseitenmenü öffnen oder schließen"
         },
-
         "tables": {
             "titles": {
                 "actionlog": "Aktionsprotokoll",
