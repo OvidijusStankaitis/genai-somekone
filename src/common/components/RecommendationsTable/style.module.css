@@ -139,7 +139,6 @@
     height: 200px;
 }
 
-/* Tooltip (Improvement 1 & 2) */
 .tooltipWrapper {
     position: relative;
     margin-left: auto;
@@ -182,7 +181,6 @@
     margin-bottom: 0;
 }
 
-/* Score breakdown bar (Improvement 1) */
 .breakdownContainer {
     width: 100%;
     padding: 0 0.5rem;
@@ -239,4 +237,56 @@
     margin-left: auto;
     font-weight: bold;
     color: #444;
+}
+
+.featureLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.featureDescription {
+    font-size: 0.8rem;
+    color: #666;
+    font-style: italic;
+}
+
+.pieWithBadge {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pieValueText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.85rem;
+    font-weight: 500;
+    pointer-events: none;
+    text-align: center;
+}
+
+.aboveAverageBadge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #cc4400;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+:global(.MuiChartsTooltip-root) {
+    display: none !important;
 }

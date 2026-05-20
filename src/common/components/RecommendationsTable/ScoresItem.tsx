@@ -88,7 +88,7 @@ export default function ScoresItem({ item }: Props) {
                                         width: `${(seg.value / totalScore) * 100}%`,
                                         backgroundColor: barColors[ix % barColors.length],
                                     }}
-                                    title={`${t(`recommendations.features.${seg.name}`)}: ${(seg.value * 100).toFixed(0)}%`}
+                                    title={`${t(`recommendations.scoreContributions.${seg.name}`)}: ${(seg.value * 100).toFixed(0)}%`}
                                 />
                             ))}
                         </div>
@@ -102,7 +102,7 @@ export default function ScoresItem({ item }: Props) {
                                         className={style.legendDot}
                                         style={{ backgroundColor: barColors[ix % barColors.length] }}
                                     />
-                                    <span>{t(`recommendations.features.${seg.name}`)}</span>
+                                    <span>{t(`recommendations.scoreContributions.${seg.name}`)}</span>
                                     <span className={style.legendValue}>
                                         {(seg.value * 100).toFixed(0)}%
                                     </span>

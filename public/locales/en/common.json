@@ -252,7 +252,8 @@
             "selectionProbability": "Add some diversity",
             "selectionRank": "No diversity",
             "imageGrid": "Show top recommendations",
-            "heatmap": "Show all images"
+            "heatmap": "Show all images",
+            "aboveAverage": "Above Average"
         },
         "titles": {
             "candidateDiscovery": "How are candidates discovered?",
@@ -267,7 +268,9 @@
         },
         "tooltips": {
             "scoreExplain": "How well this content matches your profile. A higher score means the algorithm predicts you are more likely to engage with it.",
-            "diversityExplain": "How much randomness was used when selecting this recommendation. A high value means it was chosen despite a lower match score, to add variety to your feed."
+            "diversityExplain": "How much randomness was used when selecting this recommendation. A high value means it was chosen despite a lower match score, to add variety to your feed.",
+            "engageExplain": "These percentages show how often you have interacted with similar content in the past. The size of each circle shows how much that behaviour influenced this recommendation.",
+            "engageOverMax": ">100% - you engage with this kind of content more than a typical user - the visual boundary is kept at 100%, but the real value is higher."
         },
         "descriptions": {
             "selectHint": "Select an image to see why it is suggested.",
@@ -290,17 +293,43 @@
             "selectionRank": "Only select images that have the best scores"
         },
         "features": {
-            "taste": "Taste Similarity",
-            "coengagement": "Common engagements",
-            "sharing": "Likely to share",
-            "commenting": "Likely to comment",
-            "following": "Likely to follow",
-            "reacting": "Likely to react",
-            "viewing": "Likely to view",
-            "lastSeen": "Not seen recently",
-            "popularity": "Popularity",
-            "reaction": "Likely to react",
-            "lastEngaged": "Not engaged with"
+            "taste": "You like this kind of content",
+            "coengagement": "Others with your taste liked this",
+            "sharing": "You share content like this",
+            "commenting": "You comment on content like this",
+            "following": "You follow creators like this",
+            "reacting": "You react to content like this",
+            "viewing": "You watch content like this",
+            "lastSeen": "You haven't seen this in a while",
+            "popularity": "This is popular with everyone",
+            "reaction": "You react to content like this",
+            "lastEngaged": "You haven't interacted with this recently"
+        },
+        "featureDescriptions": {
+            "taste": "The higher this is, the more this content matches what you usually enjoy",
+            "coengagement": "People who liked the same things as you also liked this",
+            "sharing": "The higher this is, the more you tend to share similar content",
+            "commenting": "The higher this is, the more you tend to leave comments on similar content",
+            "following": "The higher this is, the more you tend to follow creators of similar content",
+            "reacting": "The higher this is, the more you tend to like similar content",
+            "viewing": "The higher this is, the longer you usually watch similar content",
+            "lastSeen": "The algorithm shows you things you haven't seen for a while",
+            "popularity": "The higher this is, the more people across the platform have interacted with it",
+            "reaction": "The higher this is, the more you tend to like similar content",
+            "lastEngaged": "The algorithm shows you things you haven't interacted with for a while"
+        },
+        "scoreContributions": {
+            "taste": "Matches your interests",
+            "coengagement": "Popular with similar users",
+            "sharing": "You share content like this",
+            "commenting": "You comment on content like this",
+            "following": "You follow creators like this",
+            "reacting": "You react to content like this",
+            "viewing": "You watch content like this",
+            "lastSeen": "You haven't seen this recently",
+            "popularity": "Popular with everyone",
+            "reaction": "You react to content like this",
+            "lastEngaged": "You haven't interacted with this recently"
         },
         "aria": {
             "imageSelect": "Select recommendation number {{number}}",
