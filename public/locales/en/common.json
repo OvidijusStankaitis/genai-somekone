@@ -171,7 +171,8 @@
             "engagement": "Engagement",
             "end": "Stopped using the app",
             "unreact": "Unreacted",
-            "hide": "Image was hidden"
+            "hide": "Image was hidden",
+            "engagementTooltip": "This score shows how much you interacted with this image. The higher it is, the more the algorithm thinks you are interested in this type of content. The percentages below show how much each action contributed to this score."
         },
         "labels": {
             "enterUsername": "Enter Username",

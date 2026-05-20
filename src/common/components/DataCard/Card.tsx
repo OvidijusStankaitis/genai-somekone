@@ -1,5 +1,5 @@
 import style from './style.module.css';
-import { JSX, PropsWithChildren } from 'react';
+import { JSX, PropsWithChildren, useState } from 'react';
 import { timeAgo } from './time';
 import ScorePie from '../RecommendationsTable/ScorePie';
 
@@ -10,9 +10,12 @@ interface Props extends PropsWithChildren {
     score?: number;
     time?: number;
     avatar?: JSX.Element;
+    tooltip?: string;
 }
 
-export default function Card({ image, message, score, children, avatar, time, title }: Props) {
+export default function Card({ image, message, score, children, avatar, time, title, tooltip }: Props) {
+    const [tooltipVisible, setTooltipVisible] = useState(false);
+
     return (
         <li
             className={style.item}
@@ -33,6 +36,20 @@ export default function Card({ image, message, score, children, avatar, time, ti
                     {title && <h2>{title}</h2>}
                     {time && <div className={style.time}>{timeAgo(time)}</div>}
                 </div>
+                {tooltip && (
+                    <div
+                        className={style.tooltipWrapper}
+                        onMouseEnter={() => setTooltipVisible(true)}
+                        onMouseLeave={() => setTooltipVisible(false)}
+                    >
+                        <span className={style.helpIcon}>?</span>
+                        {tooltipVisible && (
+                            <div className={style.tooltip}>
+                                {tooltip}
+                            </div>
+                        )}
+                    </div>
+                )}
                 {score !== undefined && (
                     <ScorePie
                         value={Math.min(1, score)}

@@ -27,6 +27,7 @@ const LogBatch = memo(function LogBatch({ batch }: Props) {
             message={message}
             image={image}
             score={batch[0].entry.value || 0}
+            tooltip={t('feed.actionlog.engagementTooltip')}
         >
             {batch.slice(1).map((item, ix) => (
                 <LogItem

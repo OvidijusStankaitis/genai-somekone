@@ -1,5 +1,10 @@
 import { engagementFromLog } from '@genai-fi/recom';
 import { ContentLogEntry } from './LogBatch';
+import { MAX_ENGAGEMENT } from './message';
+
+export function normaliseEngagement(raw: number): number {
+    return Math.max(0, raw / MAX_ENGAGEMENT);
+}
 
 export function batchLogs(log: ContentLogEntry[], oldBatch: ContentLogEntry[][]): ContentLogEntry[][] {
     const results: ContentLogEntry[][] = [[]];
@@ -31,14 +36,22 @@ export function batchLogs(log: ContentLogEntry[], oldBatch: ContentLogEntry[][])
         }
     }
 
-    // The first result may not have engagement
-    if (log[0].entry.activity !== 'engagement') {
-        const weight = engagementFromLog(results[0].map((l) => l.entry));
+    if (results[0][0].entry.activity === 'engagement') {
+        results[0][0] = {
+            ...results[0][0],
+            entry: {
+                ...results[0][0].entry,
+                value: normaliseEngagement(results[0][0].entry.value || 0),
+            },
+        };
+    } else {
+        results[0] = results[0].filter((l) => l.entry.activity !== 'engagement');
+        const rawWeight = engagementFromLog(results[0].map((l) => l.entry));
         results[0].unshift({
             entry: {
                 activity: 'engagement',
                 timestamp: log[0].entry.timestamp,
-                value: weight,
+                value: normaliseEngagement(rawWeight),
                 id: log[0].entry.id,
             },
             content: log[0].content,
