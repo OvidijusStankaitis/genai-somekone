@@ -138,3 +138,105 @@
     width: calc(100% - 1rem);
     height: 200px;
 }
+
+/* Tooltip (Improvement 1 & 2) */
+.tooltipWrapper {
+    position: relative;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.helpIcon {
+    cursor: pointer;
+    color: #666;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.helpIcon:hover {
+    opacity: 1;
+}
+
+.tooltip {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+    background: #333;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    width: 260px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    pointer-events: none;
+}
+
+.tooltip p {
+    margin: 0 0 0.5rem 0;
+}
+
+.tooltip p:last-child {
+    margin-bottom: 0;
+}
+
+/* Score breakdown bar (Improvement 1) */
+.breakdownContainer {
+    width: 100%;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+}
+
+.breakdownLabel {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 0.4rem;
+}
+
+.breakdownBar {
+    display: flex;
+    height: 18px;
+    border-radius: 9px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.breakdownSegment {
+    height: 100%;
+    transition: filter 0.2s;
+    cursor: default;
+}
+
+.breakdownSegment:hover {
+    filter: brightness(1.2);
+}
+
+.breakdownLegend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+}
+
+.legendDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legendValue {
+    margin-left: auto;
+    font-weight: bold;
+    color: #444;
+}

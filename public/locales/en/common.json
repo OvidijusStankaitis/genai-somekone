@@ -262,7 +262,12 @@
             "diversityOptions": "Should there be diversity?",
             "candidateOrigin": "Where it was found",
             "predictedScore": "Predicted engagement",
-            "explainScore": "Why you might engage"
+            "explainScore": "Why you might engage",
+            "scoreBreakdown": "What drove this score"
+        },
+        "tooltips": {
+            "scoreExplain": "How well this content matches your profile. A higher score means the algorithm predicts you are more likely to engage with it.",
+            "diversityExplain": "How much randomness was used when selecting this recommendation. A high value means it was chosen despite a lower match score, to add variety to your feed."
         },
         "descriptions": {
             "selectHint": "Select an image to see why it is suggested.",
